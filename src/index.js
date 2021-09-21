@@ -5,6 +5,7 @@ import $ from 'jquery';
 class Game {
     result = [];
     position = [];
+    reward = '';
 
     midAutumn = new MidAutumn();
 
@@ -12,13 +13,8 @@ class Game {
         this.result = this.midAutumn.start();
         // this.result = this.midAutumn.setResult([4, 4, 4, 4, 1, 1]).getResult();
         this.setDice();
-        var path = '/pages/log/log?result='+ this.midAutumn.getAward().name
-        // document.getElementById('result').style.display=''
-        $('#result').text(this.midAutumn.getAward().name)
-        setTimeout(() => {
-            wx.miniProgram.navigateTo({ url: path });
-        }, 300)
-
+        this.reward = this.midAutumn.getAward().name;
+        $('#result').text(this.reward)
     }
 
     getPosition() {
@@ -40,7 +36,13 @@ class Game {
         setTimeout(() => {
             $("#bowl").addClass('active');
             $("#startGame").css('display', 'none');
+            $("#send").css('display', '');
         }, 150)
+    }
+
+    send(){
+        var path = '/pages/log/log?result='+ this.reward;
+        wx.miniProgram.navigateTo({ url: path });
     }
 }
 
@@ -48,5 +50,8 @@ $(() => {
     const game = new Game();
     $("#startGame").click(() => {
         game.start();
+    })
+    $("#send").click(() => {
+        game.send();
     })
 });
