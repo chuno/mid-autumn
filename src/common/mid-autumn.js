@@ -115,7 +115,7 @@ export default class MidAutumn {
                 }
             }
             return {
-                name: '未中奖',
+                name: '杠龟',
             }
         }
     }

@@ -1,9 +1,6 @@
 import { MidAutumn } from './common';
 import './style/main.less';
-
-import $ from "jquery";
-
-
+import $ from 'jquery';
 
 class Game {
     result = [];
@@ -14,8 +11,14 @@ class Game {
     start() {
         this.result = this.midAutumn.start();
         // this.result = this.midAutumn.setResult([4, 4, 4, 4, 1, 1]).getResult();
-        console.log(this.midAutumn.getAward());
         this.setDice();
+        var path = '/pages/log/log?result='+ this.midAutumn.getAward().name
+        // document.getElementById('result').style.display=''
+        $('#result').text(this.midAutumn.getAward().name)
+        setTimeout(() => {
+            wx.miniProgram.navigateTo({ url: path });
+        }, 300)
+
     }
 
     getPosition() {
@@ -36,7 +39,8 @@ class Game {
         })
         setTimeout(() => {
             $("#bowl").addClass('active');
-        }, 200)
+            $("#startGame").css('display', 'none');
+        }, 150)
     }
 }
 

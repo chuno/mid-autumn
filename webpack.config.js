@@ -10,7 +10,8 @@ module.exports = {
 
     devServer: {
         hot: true,
-        open: true
+        open: true,
+        port: 9527
     },
 
     module: {
@@ -42,7 +43,7 @@ module.exports = {
 
 
     plugins: [new HtmlWebpackPlugin({ // 打包输出HTML
-        title: 'Hello World app',
+        title: '中秋快乐',
         minify: { // 压缩HTML文件
             removeComments: true, // 移除HTML中的注释
             collapseWhitespace: true, // 删除空白符与换行符
