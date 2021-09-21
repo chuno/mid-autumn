@@ -1,19 +1,10 @@
-## 中秋博饼H5小游戏 
-
-### 预览地址
-
-扫描二维码查看
-
-![预览](src/image/preview.png)
-
-
-
+## 中秋
 ### 使用
 
 #### 下载项目
 
 ```powershell
-$ git clone https://github.com/YuQian2015/mid-autumn.git
+$ git clone https://github.com/chuno/mid-autumn.git
 ```
 
 #### 启动开发
@@ -33,8 +24,8 @@ $ npm start
 $ npm run build
 ```
 
-- 抽出通用的博饼逻辑
-- 返回博饼结果
+- 抽出通用的逻辑
+- 返回结果
 - 提前设置结果
 - 判断奖项
 
